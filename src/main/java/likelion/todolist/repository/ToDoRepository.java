@@ -23,6 +23,7 @@ public class ToDoRepository {
             em.merge(toDo);
     }
 }
+    //Create 구현
     // 데이터를 id로 하나만 조회한다.
     public ToDo findOne(Long id){
         return em.find(ToDo.class, id);
@@ -31,5 +32,10 @@ public class ToDoRepository {
     //저장된 모든 데이터를 조회한다.
     public List<ToDo> findAll(){
         return em.createQuery("select i from ToDo i", ToDo.class).getResultList();
+    }
+
+    //Delete 삭제 코드 추가
+    public void delete(ToDo toDo){
+        em.remove(toDo);
     }
 }
